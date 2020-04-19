@@ -8,8 +8,8 @@
   </head>
   <body>
     <div id="container">
-      <div id="score">
-        Score: <span id=scoreVal>0</span>
+      <div id="score" onclick="clickStartReset">
+        Score: <span id=scoreVal></span>
       </div>
       <div id="correct">
         Correct
@@ -18,27 +18,27 @@
         Wrong
       </div>
       <div id="question">
-        7x9
+        <span id="firstNum"></span> x <span id="secondNum"></span>
       </div>
       <div id="instruction">
-        Instruction
+        Click on the correct answer
       </div>
       <div id="choices">
         <div class="box" id="box1">
-          box1
+          <span id="choice1"></span>
         </div>
         <div class="box" id="box2">
-
+          <span id="choice2"></span>
         </div>
         <div class="box" id="box3">
-
+          <span id="choice3"></span>
         </div>
         <div class="box" id="box4">
-
+          <span id="choice4"></span>
         </div>
       </div>
-      <div id="startReset">
-        Start
+      <div id="startReset" onclick="startReset()">
+        <span id="startResetVal">Start</span>
       </div>
       <div id="timer">
         Time remaining: <span id="remainingTime"></span>
@@ -47,8 +47,6 @@
         Remaining tries: <span id="triesRemaining">2</span>
       </div>
     </div>
-    <script src="javascript.js">
-
-    </script>
+    <script src="javascript.js"></script>
   </body>
 </html>
