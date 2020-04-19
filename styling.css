@@ -1,0 +1,107 @@
+html {
+  height: 100%;
+  background: radial-gradient(circle, #fff, #cec);
+}
+
+#container {
+  height: 420px;
+  width: 550px;
+  background-color: #9DD2EE;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 13px;
+  box-shadow: 2px 2px 0px 1px #00BBCC;
+  /* [horizontal offset] [vertical offset] [blur radius] [optional spread radius] */
+  position: relative;
+}
+
+#score {
+  background-color: #F1FF92;
+  color: #888E5F;
+  padding: 9px;
+  position: absolute;
+  left: 500px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 0px 0px #DDDD11;
+  text-align: center;
+  font-size: 15px;
+  font-family: sans-serif;
+}
+
+#correct {
+  position: absolute;
+  left: 260px;
+  background-color: #2DF219;
+  color: #116619;
+  padding: 8px;
+  border-radius: 20px;
+  display: none;
+}
+
+#wrong {
+  position: absolute;
+  left: 262.2px;
+  background-color: #F22619;
+  color: #661119;
+  padding: 8px;
+  border-radius: 20px;
+  display: none;
+}
+
+#question {
+  width: 420px;
+  height: 150px;
+  margin: 55px auto 10px auto;
+  background-color: #66D2EE;
+  border-radius: 20px;
+  font-size: 95px;
+  text-align: center;
+  font-family: monospace, sans-serif;
+  padding-top: 40px;
+  color: black;
+  letter-spacing: 5px;
+}
+
+#instruction {
+  width: 430px;
+  height: 50px;
+  background-color: #B499D9;
+  margin: 10px auto;
+  text-align: center;
+  font-size: 30px;
+  line-height: 45px;
+  border-radius: 10px;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+}
+
+#choices {
+  width: 430px;
+  height: 60px;
+  margin: 10px auto;
+}
+
+.box {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  float: left;
+  margin-right: 35.5px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 2px 3px rgba(0, 0, 0, 0.2);
+  line-height: 80px;
+  font-size: 20px;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  transition: background-color 0.5s;
+}
+
+.box:hover {
+  background-color: #B466D9
+}
+
+#box4 {
+  margin-right: 0px;
+}
