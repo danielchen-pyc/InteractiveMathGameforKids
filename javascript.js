@@ -185,6 +185,7 @@ function startCountDown() {
 }
 
 function losingAction() {
+  clearInterval(myCountDown);
   window.alert("You lose! Your score is " + document.getElementById("scoreVal").innerHTML);
   document.getElementById("correct").style.display = "none";
   document.getElementById("wrong").style.display = "none";
@@ -193,5 +194,4 @@ function losingAction() {
   document.getElementsByClass("box").style.display = "none";
   document.getElementById("firstNum").style.display = "none";
   document.getElementById("secondNum").style.display = "none";
-  clearInterval(myCountDown);
 }
