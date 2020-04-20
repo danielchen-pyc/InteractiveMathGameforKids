@@ -181,3 +181,11 @@ html {
   /* visibility: hidden; */
   display: none;
 }
+
+#firstNum, #secondNum {
+  display: run-in;
+}
+
+.choice {
+  display: run-in;
+}

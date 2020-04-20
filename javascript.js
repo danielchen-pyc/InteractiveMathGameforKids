@@ -4,6 +4,7 @@ var timeRemaining;
 var correctAnswer;
 var triesRemaining;
 var myCountDown;
+var seed;
 
 document.getElementById("startReset").onclick = function() {
   if (playing) {
@@ -19,6 +20,7 @@ document.getElementById("startReset").onclick = function() {
     timeRemaining = 30;
     document.getElementById("remainingTime").innerHTML = timeRemaining;
     startCountDown();
+    seed = 1;
     generateQ();
     generateA();
   }
@@ -41,12 +43,13 @@ function generateA() {
   var index = 1;
   while (index <= 4) {
     if (document.getElementById("choice" + index).innerHTML == "") {
-      var randomWrong = Math.round(Math.random() * 100);
-      var wrongAnswer = (firstNum - randomWrong) * (secondNum + randomWrong) % 85;
+      seed++;
+      var randomWrong = Math.round(Math.random() * 200 + Math.sin(seed * 10));
+      var wrongAnswer = (firstNum - randomWrong) * (secondNum + randomWrong) % 100;
       if (wrongAnswer != correctAnswer) {
         document.getElementById("choice" + index).innerHTML = Math.abs(wrongAnswer);
       } else {
-        document.getElementById("choice" + index).innerHTML = Math.abs(wrongAnswer + 4);
+        document.getElementById("choice" + index).innerHTML = Math.abs(correctAnswer + 4);
       }
     }
     index++;
@@ -64,8 +67,8 @@ document.getElementById("box1").onclick = function() {
       }, 1000);
       triesRemaining = 2;
       timeRemaining = 30;
-      startCountDown();
       document.getElementById("triesRemaining").innerHTML = triesRemaining;
+      clearChoice();
       generateQ();
       generateA();
     } else {
@@ -94,8 +97,8 @@ document.getElementById("box2").onclick = function() {
       }, 1000);
       triesRemaining = 2;
       timeRemaining = 30;
-      startCountDown();
       document.getElementById("triesRemaining").innerHTML = triesRemaining;
+      clearChoice();
       generateQ();
       generateA();
     } else {
@@ -124,8 +127,8 @@ document.getElementById("box3").onclick = function() {
       }, 1000);
       triesRemaining = 2;
       timeRemaining = 30;
-      startCountDown();
       document.getElementById("triesRemaining").innerHTML = triesRemaining;
+      clearChoice();
       generateQ();
       generateA();
     } else {
@@ -154,8 +157,8 @@ document.getElementById("box4").onclick = function() {
       }, 1000);
       triesRemaining = 2;
       timeRemaining = 30;
-      startCountDown();
       document.getElementById("triesRemaining").innerHTML = triesRemaining;
+      clearChoice();
       generateQ();
       generateA();
     } else {
@@ -186,12 +189,22 @@ function startCountDown() {
 
 function losingAction() {
   clearInterval(myCountDown);
-  window.alert("You lose! Your score is " + document.getElementById("scoreVal").innerHTML);
   document.getElementById("correct").style.display = "none";
   document.getElementById("wrong").style.display = "none";
   document.getElementById("timer").style.display = "none";
   document.getElementById("counter").style.display = "none";
-  document.getElementsByClass("box").style.display = "none";
-  document.getElementById("firstNum").style.display = "none";
-  document.getElementById("secondNum").style.display = "none";
+  clearChoice();
+  document.getElementById("question").innerHTML = "";
+  document.getElementById("scoreVal").innerHTML = score;
+  document.getElementById("startResetVal").innerHTML = "Start";
+  window.alert("You lose! Your score is " + document.getElementById("scoreVal").innerHTML);
+  document.getElementById("instruction").innerHTML = "Click Start to Start Game!";
+  score = 0;
+  location.reload();
+}
+
+function clearChoice() {
+  for (i = 0; i < 4; i++) {
+    document.getElementsByClassName("choice")[i].innerHTML = "";
+  }
 }
